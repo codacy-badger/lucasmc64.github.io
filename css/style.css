@@ -1,0 +1,113 @@
+@charset "UTF-8";
+@font-face{
+    font-family: 'FDN';
+    src: url("../fonts/CaviarDreams.ttf");
+}
+@font-face{
+    font-family: 'FDI';
+    src: url("../fonts/CaviarDreams_Italic.ttf");
+}
+@font-face{
+    font-family: 'FDBI';
+    src: url("../fonts/CaviarDreams_BoldItalic.ttf");
+}
+@font-face{
+    font-family: 'FDB';
+    src: url("../fonts/CaviarDreams_Bold.ttf");
+}
+
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f57f1f;
+    color: rgba(0,0,0,1);
+}
+
+header{
+    text-align: center;
+}
+
+header h1{
+    font-family: 'FDN';
+    font-size: 25pt;
+    color: #ffffff;
+}
+
+header h2{
+    font-family: 'FDN';
+    font-size: 18pt;
+    color: #ddddddcc;
+}
+
+strong{
+    font-family: Arial, sans-serif;
+}
+
+section{
+    width: 500px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+section div#visor{
+    width: 450px;
+    height: 150px;
+    padding: 10px;
+    margin: 25px;
+}
+
+section div#visor p#preview{
+    margin: 25px;
+    text-align: right;
+    font-family: Arial, sans-serif;
+    width: 400px;
+    font-size: 10px;
+}
+
+section div#visor p#resposta{
+    margin: 25px;
+    text-align: right;
+    font-family: Arial, sans-serif;
+    font-size: 60px;
+}
+
+section input{
+    border: none;
+    background-color: #ffffff;
+    margin: 5px;
+    width: 90px;
+    height: 50px;
+    padding: auto;
+    font-size: 20px;
+    color: #f57f1f;
+}
+
+section div#numeros{
+    width: 300px;
+}
+
+section div#numeros div.linha{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 300px;
+}
+
+section aside{
+    display: block;
+    width: 200px;
+    float: right;
+}
+
+section aside div.linha{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 200px;
+}
