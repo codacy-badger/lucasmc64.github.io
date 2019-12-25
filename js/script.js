@@ -2,6 +2,29 @@ var visor;
 var preview;
 var resposta = 'CATCHAU';
 
+//Gerador de Cor
+function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+//
+//Teste
+var cor = getRandomColor();
+function mudaCor(){
+    var fundo = window.document.querySelector("body");
+    fundo.style.backgroundColor = cor;
+    var botoes = window.document.querySelectorAll("input");
+    var i;
+    for(i = 0; i < botoes.length; i++){
+        botoes[i].style.color = cor;
+    }
+}
+
+//
 function operacao(op) {
     //console.log(v)
     preview = window.document.querySelector("p#preview");
@@ -175,7 +198,7 @@ function descolorirNum(n) {
 function colorirOp(op) {
     //console.log("HI")
     var bloco = window.document.querySelector("input#" + op);
-    bloco.style.background = '#f57f1f';
+    bloco.style.background = cor;
     bloco.style.color = '#ffffff'
 }
 
@@ -183,5 +206,5 @@ function descolorirOp(op) {
     //console.log("HI")
     var bloco = window.document.querySelector("input#" + op);
     bloco.style.background = '#ffffff';
-    bloco.style.color = '#f57f1f'
+    bloco.style.color = cor
 }
