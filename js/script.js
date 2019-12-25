@@ -148,7 +148,11 @@ function numero(n) {
     tamanho_num = visor.textContent.length;
     //console.log()
     if (tamanho_num <= 5) {
-        visor.innerHTML += n;
+        if(visor.textContent == '0'){
+            visor.innerHTML = n;
+        }else{
+            visor.innerHTML += n;
+        }
     } else {
         alert("Número grande demais!");
     }
