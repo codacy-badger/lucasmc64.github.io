@@ -7,9 +7,14 @@ function operacao(op) {
     preview = window.document.querySelector("p#preview");
     visor = window.document.querySelector("p#resposta");
     if (op == 'C') {
-        preview.innerHTML += ``;
+        preview.innerHTML = ``;
         visor.textContent = '';
         resposta = 'CATCHAU';
+        return false;
+    }
+
+    if (op == 'CE') {
+        visor.textContent = '';
         return false;
     }
     //console.log(visor.textContent.length)
@@ -28,7 +33,29 @@ function operacao(op) {
     if (op == '+/-' && visor.textContent != '') {
         var negar = Number(visor.textContent);
         negar = negar * (-1);
+        //preview.innerHTML += `${visor.textContent} * (-1)`;
         visor.textContent = negar;
+        return false;
+    }
+
+    if (op == '1/X' && visor.textContent != '') {
+        var um_sobre_x = Number(visor.textContent);
+        um_sobre_x = 1 / um_sobre_x;
+        //preview.innerHTML += `1/(${visor.textContent})`;
+        visor.textContent = um_sobre_x;
+        return false;
+    }
+
+    if (op == 'sqrt' && visor.textContent != '') {
+        var raizQ = Number(visor.textContent);
+        raizQ = Math.sqrt(raizQ);
+        //preview.innerHTML = `sqrt(${visor.textContent})`;
+        visor.textContent = raizQ;
+        return false;
+    }
+
+    if (op == ',' && visor.textContent != '') {
+        visor.textContent += '.';
         return false;
     }
 
@@ -55,11 +82,16 @@ function operacao(op) {
             resposta = resposta + Number(visor.textContent);
         } else if (op == '-') {
             resposta = resposta - Number(visor.textContent);
+        } else if (op == '%') {
+            resposta = resposta % Number(visor.textContent);
+        } else if (op == '^') {
+            resposta = Math.pow(resposta, Number(visor.textContent));
         }
     }
     console.log(resposta)
     if (op == '=' && preview.textContent != '' && visor.textContent != '') {
         console.log(preview.textContent[preview.textContent.length - 2])
+        
         if (preview.textContent[preview.textContent.length - 2] == '*') {
             resposta = resposta * Number(visor.textContent);
         } else if (preview.textContent[preview.textContent.length - 2] == '/') {
@@ -68,7 +100,13 @@ function operacao(op) {
             resposta = resposta + Number(visor.textContent);
         } else if (preview.textContent[preview.textContent.length - 2] == '-') {
             resposta = resposta - Number(visor.textContent);
+        } else if (preview.textContent[preview.textContent.length - 2] == '%') {
+            resposta = resposta % Number(visor.textContent);
+        } else if (preview.textContent[preview.textContent.length - 2] == '^') {
+            resposta = Math.pow(resposta, Number(visor.textContent));
         }
+        
+
         var decimal = resposta;
         var casas_decimais = 0;
         var truncado = Math.trunc(resposta);

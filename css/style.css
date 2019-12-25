@@ -43,7 +43,11 @@ strong{
     font-family: Arial, sans-serif;
 }
 
-section{
+div.container{
+    width: 550px;
+}
+
+section#principal{
     width: 500px;
     background-color: #ffffff;
     margin-left: auto;
@@ -51,14 +55,14 @@ section{
     border-radius: 10px;
 }
 
-section div#visor{
+section#principal div#visor{
     width: 450px;
     height: 150px;
     padding: 10px;
     margin: 25px;
 }
 
-section div#visor p#preview{
+section#principal div#visor p#preview{
     margin: 25px;
     text-align: right;
     font-family: Arial, sans-serif;
@@ -66,14 +70,14 @@ section div#visor p#preview{
     font-size: 10px;
 }
 
-section div#visor p#resposta{
+section#principal div#visor p#resposta{
     margin: 25px;
     text-align: right;
     font-family: Arial, sans-serif;
     font-size: 60px;
 }
 
-section input{
+section#principal input{
     border: none;
     background-color: #ffffff;
     margin: 5px;
@@ -84,30 +88,15 @@ section input{
     color: #f57f1f;
 }
 
-section div#numeros{
-    width: 300px;
+section div#calc{
+    width: 400px;
 }
 
-section div#numeros div.linha{
+section div#calc div.linha{
     align-items: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 300px;
-}
-
-section aside{
-    display: block;
-    width: 200px;
-    float: right;
-}
-
-section aside div.linha{
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 200px;
+    width: 400px;
 }
