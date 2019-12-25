@@ -2,6 +2,17 @@ var visor;
 var preview;
 var resposta = 'CATCHAU';
 
+//
+/*
+var corpo = window.document.querySelector("body");
+corpo.addEventListener('keypress', teclado);
+
+function teclado(){
+    alert("OI");
+}
+*/
+//
+
 //Gerador de Cor
 function getRandomColor() {
     var letters = "0123456789ABCDEF";
