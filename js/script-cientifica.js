@@ -33,6 +33,8 @@ function mudaCor(){
     for(i = 0; i < botoes.length; i++){
         botoes[i].style.color = cor;
     }
+    var home = window.document.querySelector("#home");
+    home.style.color = cor;
 }
 
 //

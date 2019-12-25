@@ -1,0 +1,156 @@
+@charset "UTF-8";
+@font-face{
+    font-family: 'FDN';
+    src: url("../fonts/CaviarDreams.ttf");
+}
+@font-face{
+    font-family: 'FDI';
+    src: url("../fonts/CaviarDreams_Italic.ttf");
+}
+@font-face{
+    font-family: 'FDBI';
+    src: url("../fonts/CaviarDreams_BoldItalic.ttf");
+}
+@font-face{
+    font-family: 'FDB';
+    src: url("../fonts/CaviarDreams_Bold.ttf");
+}
+
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f57f1f;
+    color: rgba(0,0,0,1);
+    margin: 0px;
+}
+
+header{
+    text-align: center;
+}
+
+header h1{
+    font-family: 'FDN';
+    font-size: 25pt;
+    color: #ffffff;
+}
+
+header h2{
+    font-family: 'FDN';
+    font-size: 18pt;
+    color: #ddddddcc;
+}
+
+strong{
+    font-family: Arial, sans-serif;
+}
+
+div#all{
+    width: 100%;
+    height: 100vh;
+}
+
+div.container{
+    width: 60%;
+    height: 100%;
+    display: block;
+    position: relative;
+    float: left;
+}
+
+div.container2{
+    width: 40%;
+    height: 100%;
+    display: block;
+    position: relative;
+    float: right;
+}
+
+section#principal{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    /*border-radius: 10px;*/
+}
+
+section#principal div#visor{
+    width: 95%;
+    height: 20%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    position: relative;
+    float: right;
+    /*margin: 25px;*/
+}
+
+section#principal div#visor i#home{
+    margin: 0px;
+    padding-top: 10px;
+    float: left;
+    width: 25px;
+    height: 4vh;
+    color: #f57f1f;
+}
+
+section#principal div#visor p#preview{
+    margin: 0px;
+    padding-top: 10px;
+    text-align: right;
+    font-family: Arial, sans-serif;
+    width: 80%;
+    height: 4vh;
+    font-size: 15px;
+}
+
+section#principal div#visor p#resposta{
+    margin: 0px;
+    text-align: right;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 16vh;
+    font-size: 80px;
+}
+
+
+section div#calc{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+section div#calc div.linha{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+section#principal input{
+    border: none;
+    background-color: #ffffff;
+    width: 25%;
+    height: 13.3vh;
+    padding: auto;
+    font-size: 25px;
+    color: #f57f1f;
+    /*border-radius: 10px;*/
+}
+
+section#bonus{
+    margin-top: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    margin-left: auto;
+    margin-right: auto;
+    /*border-radius: 10px;*/
+}
+
+div.cabecalho h1{
+    margin: 0px;
+    padding-top: 5px;
+}

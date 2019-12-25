@@ -75,29 +75,50 @@ section#principal{
 }
 
 section#principal div#visor{
-    width: 95%;
+    width: 100%;
     height: 20%;
     margin-right: auto;
     margin-left: auto;
+    display: block;
+    position: relative;
+    float: right;
     /*margin: 25px;*/
+}
+
+div#voltar{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    position: relative;
+    float: right;
+}
+
+div#voltar i#home{
+    margin: 0px;
+    padding-top: 1vh;
+    float: left;
+    width: 25px;
+    height: 4vh;
+    color: #f57f1f;
 }
 
 section#principal div#visor p#preview{
     margin: 0px;
+    padding-top: 10px;
     text-align: right;
     font-family: Arial, sans-serif;
-    width: 100%;
-    height: 5vh;
-    font-size: 10px;
+    width: 99%;
+    height: 4vh;
+    font-size: 15px;
 }
 
 section#principal div#visor p#resposta{
     margin: 0px;
     text-align: right;
     font-family: Arial, sans-serif;
-    width: 100%;
+    width: 99%;
     height: 15vh;
-    font-size: 60px;
+    font-size: 80px;
 }
 
 
@@ -120,9 +141,9 @@ section#principal input{
     border: none;
     background-color: #ffffff;
     width: 25%;
-    height: 13.3vh;
+    height: 12.5vh;
     padding: auto;
-    font-size: 20px;
+    font-size: 25px;
     color: #f57f1f;
     /*border-radius: 10px;*/
 }
