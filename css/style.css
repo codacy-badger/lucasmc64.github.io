@@ -43,8 +43,23 @@ strong{
     font-family: Arial, sans-serif;
 }
 
+div#all{
+    width: 100%;
+    height: 100%;
+}
+
 div.container{
     width: 60%;
+    display: block;
+    position: relative;
+    float: left;
+}
+
+div.container2{
+    width: 40%;
+    display: block;
+    position: relative;
+    float: right;
 }
 
 section#principal{
@@ -83,6 +98,8 @@ section#principal div#visor p#resposta{
 
 section div#calc{
     width: 95%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 section div#calc div.linha{
@@ -102,5 +119,20 @@ section#principal input{
     padding: auto;
     font-size: 20px;
     color: #f57f1f;
+    border-radius: 10px;
 }
 
+section#bonus{
+    margin-top: 0px;
+    height: 470px;
+    width: 100%;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+div.cabecalho h1{
+    margin: 0px;
+    padding-top: 5px;
+}
