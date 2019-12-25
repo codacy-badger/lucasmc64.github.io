@@ -1,0 +1,123 @@
+@charset "UTF-8";
+@font-face{
+    font-family: 'FDN';
+    src: url("../fonts/CaviarDreams.ttf");
+}
+@font-face{
+    font-family: 'FDI';
+    src: url("../fonts/CaviarDreams_Italic.ttf");
+}
+@font-face{
+    font-family: 'FDBI';
+    src: url("../fonts/CaviarDreams_BoldItalic.ttf");
+}
+@font-face{
+    font-family: 'FDB';
+    src: url("../fonts/CaviarDreams_Bold.ttf");
+}
+
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f57f1f;
+    color: rgba(0,0,0,1);
+}
+
+header{
+    text-align: center;
+}
+
+header h1{
+    font-family: 'FDN';
+    font-size: 25pt;
+    color: #ffffff;
+}
+
+header h2{
+    font-family: 'FDN';
+    font-size: 18pt;
+    color: #ddddddcc;
+}
+
+strong{
+    font-family: Arial, sans-serif;
+}
+
+div#all{
+    width: 100%;
+    height: 100%;
+}
+
+div.container{
+    width: 40%;
+    display: block;
+    position: relative;
+    float: left;
+}
+
+div.container2{
+    width: 60%;
+    display: block;
+    position: relative;
+    float: right;
+}
+
+section#principal{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 470px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    vertical-align: middle;
+    /*border-radius: 10px;*/
+}
+
+section#principal div#parte1{
+    width: 95%;
+    height: 470px;
+    padding: 10px;
+    /*margin: 25px;*/
+}
+
+section#bonus{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0px;
+    height: 470px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    margin-left: auto;
+    margin-right: auto;
+    /*border-radius: 10px;*/
+}
+
+div.title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0px;
+    text-align: center;
+}
+
+div.title h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0px;
+    color: #f57f1f;
+}
+
+p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+}
