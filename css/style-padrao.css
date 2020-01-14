@@ -150,6 +150,22 @@ section#principal input{
     /*border-radius: 10px;*/
 }
 
+section#principal input:hover{
+    transition: color 0.3s;
+}
+
+section#principal input:not(:hover){
+    transition: color 0.3s;
+}
+
+section#principal input:hover{
+    transition: background-color 0.3s;
+}
+
+section#principal input:not(:hover){
+    transition: background-color 0.3s;
+}
+
 section#bonus{
     margin-top: 0px;
     height: 100vh;

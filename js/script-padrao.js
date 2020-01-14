@@ -1,17 +1,9 @@
+//Calculadora
+
+
 var visor;
 var preview;
 var resposta = 'CATCHAU';
-
-//
-/*
-var corpo = window.document.querySelector("body");
-corpo.addEventListener('keypress', teclado);
-
-function teclado(){
-    alert("OI");
-}
-*/
-//
 
 //Gerador de Cor
 function getRandomColor() {
@@ -112,21 +104,6 @@ function operacao(op) {
     }
     if (resposta != 'CATCHAU') {
         console.log("OP")
-        /*
-        if (op == '*') {
-            resposta = resposta * Number(visor.textContent);
-        } else if (op == '/') {
-            resposta = resposta / Number(visor.textContent);
-        } else if (op == '+') {
-            resposta = resposta + Number(visor.textContent);
-        } else if (op == '-') {
-            resposta = resposta - Number(visor.textContent);
-        } else if (op == '%') {
-            resposta = resposta % Number(visor.textContent);
-        } else if (op == '^') {
-            resposta = Math.pow(resposta, Number(visor.textContent));
-        }
-        */
         if (preview.textContent[preview.textContent.length - 2] == '*') {
             resposta = resposta * Number(visor.textContent);
         } else if (preview.textContent[preview.textContent.length - 2] == '/') {
@@ -224,3 +201,8 @@ function descolorirOp(op) {
     bloco.style.background = '#ffffff';
     bloco.style.color = cor
 }
+
+
+
+//Histórico
+
