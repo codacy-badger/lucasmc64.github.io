@@ -95,9 +95,9 @@ div#voltar{
 
 div#voltar i#home{
     margin: 0px;
-    padding-top: 1vh;
+    padding-top: 50%;
     float: left;
-    width: 25px;
+    width: 100%;
     height: 4vh;
     color: #f57f1f;
 }

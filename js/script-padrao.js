@@ -25,19 +25,19 @@ function getRandomColor() {
 //
 //Teste
 var cor = getRandomColor();
-function mudaCor(){
+function mudaCor() {
     var fundo = window.document.querySelector("body");
     fundo.style.backgroundColor = cor;
     var botoes = window.document.querySelectorAll("input");
     var i;
-    for(i = 0; i < botoes.length; i++){
+    for (i = 0; i < botoes.length; i++) {
         botoes[i].style.color = cor;
     }
     var home = window.document.querySelector("#home");
     home.style.color = cor;
 }
-
 //
+
 function operacao(op) {
     //console.log(v)
     preview = window.document.querySelector("p#preview");
@@ -110,6 +110,7 @@ function operacao(op) {
     }
     if (resposta != 'CATCHAU') {
         console.log("OP")
+        /*
         if (op == '*') {
             resposta = resposta * Number(visor.textContent);
         } else if (op == '/') {
@@ -123,11 +124,7 @@ function operacao(op) {
         } else if (op == '^') {
             resposta = Math.pow(resposta, Number(visor.textContent));
         }
-    }
-    console.log(resposta)
-    if (op == '=' && preview.textContent != '' && visor.textContent != '') {
-        console.log(preview.textContent[preview.textContent.length - 2])
-        
+        */
         if (preview.textContent[preview.textContent.length - 2] == '*') {
             resposta = resposta * Number(visor.textContent);
         } else if (preview.textContent[preview.textContent.length - 2] == '/') {
@@ -141,12 +138,16 @@ function operacao(op) {
         } else if (preview.textContent[preview.textContent.length - 2] == '^') {
             resposta = Math.pow(resposta, Number(visor.textContent));
         }
+    }
+    console.log(preview.textContent[preview.textContent.length - 2])
+    console.log(resposta)
+    if (op == '=' && preview.textContent != '' && visor.textContent != '') {
         
-
         var decimal = resposta;
         var casas_decimais = 0;
         var truncado = Math.trunc(resposta);
         console.log("truncado: " + truncado);
+        console.log(resposta);
         console.log("casas decimais: " + decimal);
         if (decimal != truncado) {
             while (decimal != truncado) {
@@ -184,9 +185,9 @@ function numero(n) {
     tamanho_num = visor.textContent.length;
     //console.log()
     if (tamanho_num <= 5) {
-        if(visor.textContent == '0'){
+        if (visor.textContent == '0') {
             visor.innerHTML = n;
-        }else{
+        } else {
             visor.innerHTML += n;
         }
     } else {
