@@ -35,6 +35,8 @@ function mudaCor() {
     }
     var home = window.document.querySelector("#home");
     home.style.color = cor;
+    var historico = window.document.querySelector("#default");
+    historico.style.color = cor;
 }
 //
 
@@ -142,7 +144,7 @@ function operacao(op) {
     console.log(preview.textContent[preview.textContent.length - 2])
     console.log(resposta)
     if (op == '=' && preview.textContent != '' && visor.textContent != '') {
-        
+
         var decimal = resposta;
         var casas_decimais = 0;
         var truncado = Math.trunc(resposta);

@@ -95,16 +95,18 @@ div#voltar{
 
 div#voltar i#home{
     margin: 0px;
-    padding-top: 50%;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+    padding-right: 1vh;
     float: left;
     width: 100%;
-    height: 4vh;
+    height: 2vh;
     color: #f57f1f;
 }
 
 section#principal div#visor p#preview{
     margin: 0px;
-    padding-top: 10px;
+    padding-top: 15px;
     text-align: right;
     font-family: Arial, sans-serif;
     width: 99%;
@@ -160,5 +162,31 @@ section#bonus{
 
 div.cabecalho h1{
     margin: 0px;
-    padding-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4vh;
+    padding-top: 1vh;
+}
+
+section#bonus div#memory select#memoriacalc{
+    width: 100%;
+    height: 94vh;
+    background-color: rgba(255,255,255,0);
+    border: none;
+    text-align: right;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#memoriacalc::-webkit-scrollbar {
+    display: none;
+}
+  
+/* Hide scrollbar for IE and Edge */
+#memoriacalc {
+    -ms-overflow-style: none;
+}
+
+select#memoriacalc option#default{
+    padding: 5px;
+    font-size: 15px;
+    text-align: center;
 }
