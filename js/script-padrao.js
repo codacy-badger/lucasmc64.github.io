@@ -324,8 +324,6 @@ function operacao(op) {
 
         basic_ops(Number(visor.textContent));
 
-        /*limita_casas_decimais();*/
-
     }
     //
 
