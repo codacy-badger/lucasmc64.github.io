@@ -107,6 +107,8 @@ var contNegado = 0;
 var last_num;
 //Guardará a operação anterior a solicitada.
 var last_operation;
+//Guardará quantos cliques foi dado no Igual
+var cont_equal = 0;
 
 
 function operacao(op) {
@@ -322,7 +324,7 @@ function operacao(op) {
 
         basic_ops(Number(visor.textContent));
 
-        limita_casas_decimais();
+        /*limita_casas_decimais();*/
 
     }
     //
@@ -344,9 +346,14 @@ function operacao(op) {
 
         limita_casas_decimais();
 
+        //HISTÓRICO
+        historico();
+        //
+        cont_equal++;
         preview.innerHTML = ``;
         visor.textContent = resposta;
         resposta = 'CATCHAU';
+
         return false;
     }
     //
@@ -428,4 +435,29 @@ function descolorirOp(op) {
     var bloco = window.document.querySelector("input#" + op);
     bloco.style.background = '#ffffff';
     bloco.style.color = cor
+}
+
+
+
+//HISTÓRICO
+var i = 0;
+function historico() {
+    var select = document.getElementById("memoriacalc");
+    if (cont_equal == 0) {
+        select.removeChild(select.childNodes[1]);
+        select.removeChild(select.childNodes[0]);
+    }
+
+    var opt_text = `${preview.innerHTML}${visor.textContent} = <br/>${resposta}`;
+    console.log("Historico: " + opt_text);
+    
+    var opt;
+    var option = window.document.createElement("option")
+    option.setAttribute('value', 'v' + i)
+    option.setAttribute('id', 'v' + i)
+    select.appendChild(option)
+    opt = window.document.querySelector("option#v" + i)
+    opt.innerHTML = opt_text;
+    i++;
+    
 }
