@@ -103,9 +103,10 @@ function basic_ops(num) {
 
 var contador = 0;
 var contNegado = 0;
-//guardará o número digitado quando o igual for apertado.
+//Guardará o número digitado quando o igual for apertado.
 var last_num;
-
+//Guardará a operação anterior a solicitada.
+var last_operation;
 
 
 function operacao(op) {
@@ -129,12 +130,17 @@ function operacao(op) {
 
     //
     if (op == '%') {
-        /*
+
         if (preview.innerHTML == ``) {
             visor.textContent = 0;
+        } else {
+            var porcento = Number(visor.textContent);
+            porcento = (resposta * porcento) / 100;
+            console.log("Porcentagem: " + porcento);
+            visor.textContent = porcento;
         }
-        */
-       return false;
+
+        return false;
     }
     //
 
@@ -204,7 +210,7 @@ function operacao(op) {
 
     //
     if (op == '1/X' && visor.textContent != '') {
-        
+
         var um_sobre_x = Number(visor.textContent);
         console.log("1/X -> " + um_sobre_x);
         um_sobre_x = 1 / um_sobre_x;
@@ -219,12 +225,12 @@ function operacao(op) {
 
         limita_casas_decimais();
 
-        if(operacao_com_parenteses > 0){
+        if (operacao_com_parenteses > 0) {
             preview.innerHTML = `1/(${preview.innerHTML}) `;
-        }else{
+        } else {
             preview.innerHTML += `1/(${visor.textContent}) `;
         }
-        
+
         operacao_com_parenteses++;
         visor.textContent = resposta;
 
@@ -251,9 +257,9 @@ function operacao(op) {
 
         limita_casas_decimais();
 
-        if(operacao_com_parenteses > 0){
+        if (operacao_com_parenteses > 0) {
             preview.innerHTML = `sqrt(${preview.innerHTML}) `;
-        }else{
+        } else {
             preview.innerHTML += `sqrt(${visor.textContent}) `;
         }
 
@@ -289,6 +295,8 @@ function operacao(op) {
                 preview.innerHTML += `${visor.textContent} ${op} `;
                 /*visor.textContent = '';*/
                 contador++;
+                last_num = visor.textContent;
+                console.log("Ultimo numero digitado= " + last_num);
             }
 
             return false;
@@ -358,6 +366,9 @@ function operacao(op) {
     //
     visor.textContent = resposta;
     //
+
+
+    last_operation = op;
 
 
 
