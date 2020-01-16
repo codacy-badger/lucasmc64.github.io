@@ -132,7 +132,6 @@ function operacao(op) {
 
     //
     if (op == '%') {
-
         if (preview.innerHTML == ``) {
             visor.textContent = 0;
         } else {
@@ -141,7 +140,6 @@ function operacao(op) {
             console.log("Porcentagem: " + porcento);
             visor.textContent = porcento;
         }
-
         return false;
     }
     //
