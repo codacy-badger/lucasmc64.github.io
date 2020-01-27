@@ -46,6 +46,7 @@ function mudaCor() {
 
 
 
+
 //OPERAÇÕES DA CALCULADORA
 
 

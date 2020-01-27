@@ -212,3 +212,7 @@ select#memoriacalc option{
     font-size: 15px;
     text-align: center;
 }
+
+h1.cabecalho-hitorico{
+    text-align: center;
+}
