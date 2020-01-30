@@ -1,18 +1,12 @@
 //Calculadora
 
-
-
 var visor;
 var preview;
 var resposta = 'CATCHAU';
 
-
-
 //Essa variável serve para saber se a última operação feita foi a de Raiz ou 1/X.
 var operacao_com_parenteses = 0;
 //
-
-
 
 //Gerador de Cores.
 function getRandomColor() {
@@ -24,8 +18,6 @@ function getRandomColor() {
     return color;
 }
 //
-
-
 
 //Muda as cores do site de acordo com a cor gerada na função anterior.
 var cor = getRandomColor();
@@ -44,12 +36,7 @@ function mudaCor() {
 }
 //
 
-
-
-
 //OPERAÇÕES DA CALCULADORA
-
-
 
 //Essa funçãoclimita número com muitas casas decimais à apenas 5 casas decimais.
 function limita_casas_decimais() {
@@ -79,8 +66,6 @@ function limita_casas_decimais() {
 }
 //
 
-
-
 //
 function basic_ops(num) {
     last_num = visor.textContent;
@@ -100,8 +85,7 @@ function basic_ops(num) {
 }
 //
 
-
-
+//
 var contador = 0;
 var contNegado = 0;
 //Guardará o número digitado quando o igual for apertado.
@@ -111,10 +95,34 @@ var last_operation;
 //Guardará quantos cliques foi dado no Igual
 var cont_equal = 0;
 
+//
+function porcentagem() {
+    if (preview.innerHTML == ``) {
+        visor.textContent = 0;
+    } else {
+        var porcento = Number(visor.textContent);
+        porcento = (resposta * porcento) / 100;
+        console.log("Porcentagem: " + porcento);
+        visor.textContent = porcento;
+    }
+}
+//
+
+//Essa operação apaga o conteúdo apenas do visor maior.
+function limpar() {
+    visor.textContent = '';
+}
+//
+
+//Esta operação apaga o conteúdo de todos os "visores" e as operações armazenadas.
+function limparTudo() {
+    preview.innerHTML = ``;
+    visor.textContent = '';
+    resposta = 'CATCHAU';
+}
+//
 
 function operacao(op) {
-
-
 
     //Esse contador serve para...
     if (op != '=') {
@@ -122,50 +130,10 @@ function operacao(op) {
     }
     //
 
-
-
     //Esses são os "visores" da calculadora.
     preview = window.document.querySelector("p#preview");
     visor = window.document.querySelector("p#resposta");
     //
-
-
-
-    //
-    if (op == '%') {
-        if (preview.innerHTML == ``) {
-            visor.textContent = 0;
-        } else {
-            var porcento = Number(visor.textContent);
-            porcento = (resposta * porcento) / 100;
-            console.log("Porcentagem: " + porcento);
-            visor.textContent = porcento;
-        }
-        return false;
-    }
-    //
-
-
-
-    //Esta operação apaga o conteúdo de todos os "visores" e as operações armazenadas.
-    if (op == 'C') {
-        preview.innerHTML = ``;
-        visor.textContent = '';
-        resposta = 'CATCHAU';
-        return false;
-    }
-    //
-
-
-
-    //Essa operação apaga o conteúdo apenas do visor maior.
-    if (op == 'CE') {
-        visor.textContent = '';
-        return false;
-    }
-    //
-
-
 
     //Essa operação apaga o conteúdo apenas o último número digitado no "visor principal".
     if (op == 'DEL' && visor.textContent != '0') {
@@ -175,8 +143,6 @@ function operacao(op) {
         return false;
     }
     //
-
-
 
     //Essa operação inverte o número digitado no "visor principal" (multiplica por -1).
     if (op == '+/-' && visor.textContent != '') {
@@ -195,10 +161,6 @@ function operacao(op) {
 
         limita_casas_decimais();
 
-        /*
-        preview.innerHTML += `${visor.textContent} * (-1) `;
-        */
-
         visor.textContent = negar;
 
         last_num = visor.textContent;
@@ -206,8 +168,6 @@ function operacao(op) {
         return false;
     }
     //
-
-
 
     //
     if (op == '1/X' && visor.textContent != '') {
@@ -241,8 +201,6 @@ function operacao(op) {
     }
     //
 
-
-
     //
     if (op == 'sqrt' && visor.textContent != '') {
         var raizQ = Number(visor.textContent);
@@ -273,8 +231,6 @@ function operacao(op) {
     }
     //
 
-
-
     //
     if (op == ',' && visor.textContent != '') {
         visor.textContent += '.';
@@ -282,8 +238,6 @@ function operacao(op) {
         return false;
     }
     //
-
-
 
     //
     if (visor.textContent == undefined || visor.textContent == '' || visor.textContent == null || visor.textContent == 0) {
@@ -305,8 +259,6 @@ function operacao(op) {
     }
     //
 
-
-
     // Para Raiz e 1/X
     if (preview.textContent[preview.textContent.length - 2] == ')' && op != '=') {
         operacao_com_parenteses = 0;
@@ -314,8 +266,6 @@ function operacao(op) {
         return false;
     }
     //
-
-
 
     //
     if (resposta != 'CATCHAU') {
@@ -326,14 +276,10 @@ function operacao(op) {
     }
     //
 
-
-
     //
     console.log(preview.textContent[preview.textContent.length - 2])
     console.log(resposta)
     //
-
-
 
     //
     if (op == '=' && preview.textContent != '' && visor.textContent != '') {
@@ -355,8 +301,6 @@ function operacao(op) {
     }
     //
 
-
-
     //
     if (preview.textContent[preview.textContent.length - 2] == ')' && op != '=') {
         preview.innerHTML += `${op} `;
@@ -365,20 +309,16 @@ function operacao(op) {
     }
     //
 
-
-
     //
     visor.textContent = resposta;
     //
 
-
     last_operation = op;
-
-
 
 }
 // Fim função operação
 
+//
 var tamanho_num;
 
 function numero(n) {
@@ -406,30 +346,26 @@ function numero(n) {
 
 }
 
-function colorirNum(n) {
-    var bloco = window.document.querySelector("input#" + n);
+function colorirNum(bloco) {
     bloco.style.background = '#ddddcc';
 }
 
 
 
-function descolorirNum(n) {
-    var bloco = window.document.querySelector("input#" + n);
+function descolorirNum(bloco) {
     bloco.style.background = '#ffffff';
 }
 
 
 
-function colorirOp(op) {
-    var bloco = window.document.querySelector("input#" + op);
+function colorirOp(bloco) {
     bloco.style.background = cor;
     bloco.style.color = '#ffffff'
 }
 
 
 
-function descolorirOp(op) {
-    var bloco = window.document.querySelector("input#" + op);
+function descolorirOp(bloco) {
     bloco.style.background = '#ffffff';
     bloco.style.color = cor
 }
@@ -447,7 +383,7 @@ function historico() {
 
     var opt_text = `${preview.innerHTML}${visor.textContent} = <br/>${resposta}`;
     console.log("Historico: " + opt_text);
-    
+
     var opt;
     var option = window.document.createElement("option")
     option.setAttribute('value', 'v' + i)
@@ -456,5 +392,5 @@ function historico() {
     opt = window.document.querySelector("option#v" + i)
     opt.innerHTML = opt_text;
     i++;
-    
+
 }

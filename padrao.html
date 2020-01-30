@@ -11,15 +11,7 @@
     <title>Calculadora</title>
 </head>
 
-<body onload="mudaCor()" onload="setDelete()">
-    <!--
-    <header>
-        <strong>
-            <h1>CALCULADORA</h1>
-        </strong>
-        <h2>A vida é mais que <strong>(2^2 + 36/12) * (21/3) - ((3^4 + 20 * 4 + 1)/9) - 11</strong></h2>
-    </header>
-    -->
+<body onload="mudaCor()">
     <section id="estrutura">
         <div id="all">
             <div class="container">
@@ -35,70 +27,70 @@
                     </div>
                     <div id="calc">
                         <div class="linha">
-                            <input type="button" value="%" id="porcentagem" onclick="operacao('%')"
-                                onmouseenter="colorirOp('porcentagem')" onmouseout="descolorirOp('porcentagem')">
-                            <input type="button" value="CE" id="apaga-visor" onclick="operacao('CE')"
-                                onmouseenter="colorirOp('apaga-visor')" onmouseout="descolorirOp('apaga-visor')">
-                            <input type="button" value="C" id="apagar-tudo" onclick="operacao('C')"
-                                onmouseenter="colorirOp('apagar-tudo')" onmouseout="descolorirOp('apagar-tudo')">
+                            <input type="button" value="%" id="porcentagem" onclick="porcentagem()"
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
+                            <input type="button" value="CE" id="apaga-visor" onclick="limpar()"
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
+                            <input type="button" value="C" id="apagar-tudo" onclick="limparTudo()"
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="&#x232b;" id="apagar-ultimo-numero" onclick="operacao('DEL')"
-                                onmouseenter="colorirOp('apagar-ultimo-numero')"
-                                onmouseout="descolorirOp('apagar-ultimo-numero')">
+                                onmouseenter="colorirOp(this)"
+                                onmouseout="descolorirOp(this)">
                         </div>
 
                         <div class="linha">
                             <input type="button" value="1/X" id="um-sobre-x" onclick="operacao('1/X')"
-                                onmouseenter="colorirOp('um-sobre-x')" onmouseout="descolorirOp('um-sobre-x')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="X&#x00B2" id="potencia" onclick="operacao('^')"
-                                onmouseenter="colorirOp('potencia')" onmouseout="descolorirOp('potencia')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="&radic;" id="raiz-quadrada" onclick="operacao('sqrt')"
-                                onmouseenter="colorirOp('raiz-quadrada')" onmouseout="descolorirOp('raiz-quadrada')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="/" id="dividir" onclick="operacao('/')"
-                                onmouseenter="colorirOp('dividir')" onmouseout="descolorirOp('dividir')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
 
                         <div class="linha">
                             <input type="button" value="7" id="sete" onclick="numero(7)"
-                                onmouseenter="colorirNum('sete')" onmouseout="descolorirNum('sete')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="8" id="oito" onclick="numero(8)"
-                                onmouseenter="colorirNum('oito')" onmouseout="descolorirNum('oito')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="9" id="nove" onclick="numero(9)"
-                                onmouseenter="colorirNum('nove')" onmouseout="descolorirNum('nove')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="X" id="multiplicar" onclick="operacao('*')"
-                                onmouseenter="colorirOp('multiplicar')" onmouseout="descolorirOp('multiplicar')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
 
                         <div class="linha">
                             <input type="button" value="4" id="quatro" onclick="numero(4)"
-                                onmouseenter="colorirNum('quatro')" onmouseout="descolorirNum('quatro')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="5" id="cinco" onclick="numero(5)"
-                                onmouseenter="colorirNum('cinco')" onmouseout="descolorirNum('cinco')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="6" id="seis" onclick="numero(6)"
-                                onmouseenter="colorirNum('seis')" onmouseout="descolorirNum('seis')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="-" id="subtrair" onclick="operacao('-')"
-                                onmouseenter="colorirOp('subtrair')" onmouseout="descolorirOp('subtrair')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
 
                         <div class="linha">
-                            <input type="button" value="1" id="um" onclick="numero(1)" onmouseenter="colorirNum('um')"
-                                onmouseout="descolorirNum('um')">
+                            <input type="button" value="1" id="um" onclick="numero(1)" onmouseenter="colorirNum(this)"
+                                onmouseout="descolorirNum(this)">
                             <input type="button" value="2" id="dois" onclick="numero(2)"
-                                onmouseenter="colorirNum('dois')" onmouseout="descolorirNum('dois')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="3" id="tres" onclick="numero(3)"
-                                onmouseenter="colorirNum('tres')" onmouseout="descolorirNum('tres')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="+" id="somar" onclick="operacao('+')"
-                                onmouseenter="colorirOp('somar')" onmouseout="descolorirOp('somar')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
 
                         <div class="linha">
                             <input type="button" value="+/-" id="negar" onclick="operacao('+/-')"
-                                onmouseenter="colorirOp('negar')" onmouseout="descolorirOp('negar')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="0" id="zero" onclick="numero(0)"
-                                onmouseenter="colorirNum('zero')" onmouseout="descolorirNum('zero')">
+                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="," id="virgula" onclick="operacao(',')"
-                                onmouseenter="colorirOp('virgula')" onmouseout="descolorirOp('virgula')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="=" id="igual" onclick="operacao('=')"
-                                onmouseenter="colorirOp('igual')" onmouseout="descolorirOp('igual')">
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
                     </div>
                 </section>
