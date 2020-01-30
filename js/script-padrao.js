@@ -5,7 +5,7 @@ var preview = window.document.querySelector("p#preview");
 var resposta = "CATCHAU";
 
 //Essa variável serve para saber se a última operação feita foi a de Raiz ou 1/X.
-var operacao_com_parenteses = 0;
+var operacaoComParenteses = 0;
 //
 
 //Gerador de Cores.
@@ -65,6 +65,10 @@ function limitaCasasDecimais() {
 }
 //
 
+//Guardará o número digitado quando o igual for apertado.
+var last_num;
+//
+
 //
 function basic_ops(num) {
     last_num = visor.textContent;
@@ -72,9 +76,9 @@ function basic_ops(num) {
 
     if (preview.textContent[preview.textContent.length - 2] == '*') {
         resposta = Number(resposta) * num;
-    } else if (preview.textContent[preview.textContent.length - 2] == '/') {
+    } else if (preview.textContent[preview.textContent.length - 2] == "/") {
         resposta = Number(resposta) / num;
-    } else if (preview.textContent[preview.textContent.length - 2] == '+') {
+    } else if (preview.textContent[preview.textContent.length - 2] == "+") {
         resposta = Number(resposta) + num;
     } else if (preview.textContent[preview.textContent.length - 2] == '-') {
         resposta = Number(resposta) - num;
@@ -87,16 +91,15 @@ function basic_ops(num) {
 //
 var contador = 0;
 var contNegado = 0;
-//Guardará o número digitado quando o igual for apertado.
-var last_num;
+
 //Guardará a operação anterior a solicitada.
-var last_operation;
+var lastOperation;
 //Guardará quantos cliques foi dado no Igual
 var cont_equal = 0;
 
 //
 function porcentagem() {
-    if (preview.innerHTML == ``) {
+    if (preview.innerHTML === ``) {
         visor.textContent = 0;
     } else {
         var porcento = Number(visor.textContent);
@@ -109,14 +112,14 @@ function porcentagem() {
 
 //Essa operação apaga o conteúdo apenas do visor maior.
 function limpar() {
-    visor.textContent = '';
+    visor.textContent = "";
 }
 //
 
 //Esta operação apaga o conteúdo de todos os "visores" e as operações armazenadas.
 function limparTudo() {
     preview.innerHTML = ``;
-    visor.textContent = '';
+    visor.textContent = "";
     resposta = "CATCHAU";
 }
 //
@@ -131,13 +134,12 @@ function deletaDigito() {
 
 //Essa operação inverte o número digitado no "visor principal" (multiplica por -1).
 function inverteSinal() {
-    if (visor.textContent != '') {
+    if (visor.textContent != "") {
         var negar = Number(visor.textContent);
         negar = negar * (-1);
-        //operacao_com_parenteses++;
-        if (preview.innerHTML != '') {
+        if (preview.innerHTML != "") {
 
-            operacao_com_parenteses = 0;
+            operacaoComParenteses = 0;
 
         } else {
             resposta = negar;
@@ -158,29 +160,29 @@ function inverteSinal() {
 
 //
 function umSobreXis() {
-    if (visor.textContent != '') {
+    if (visor.textContent != "") {
 
-        var um_sobre_x = Number(visor.textContent);
-        console.log("1/X -> " + um_sobre_x);
-        um_sobre_x = 1 / um_sobre_x;
-        console.log("2 - 1/X -> " + um_sobre_x);
-        if (preview.innerHTML != '' && operacao_com_parenteses == 0) {
+        var umSobreX = Number(visor.textContent);
+        console.log("1/X -> " + umSobreX);
+        umSobreX = 1 / umSobreX;
+        console.log("2 - 1/X -> " + umSobreX);
+        if (preview.innerHTML != "" && operacaoComParenteses == 0) {
 
-            basic_ops(um_sobre_x);
+            basic_ops(umSobreX);
 
         } else {
-            resposta = um_sobre_x;
+            resposta = umSobreX;
         }
 
         limitaCasasDecimais();
 
-        if (operacao_com_parenteses > 0) {
+        if (operacaoComParenteses > 0) {
             preview.innerHTML = `1/(${preview.innerHTML}) `;
         } else {
             preview.innerHTML += `1/(${visor.textContent}) `;
         }
 
-        operacao_com_parenteses++;
+        operacaoComParenteses++;
         visor.textContent = resposta;
 
         last_num = visor.textContent;
@@ -190,12 +192,12 @@ function umSobreXis() {
 //
 
 //
-function raizQuadrada(){
-    if (visor.textContent != '') {
+function raizQuadrada() {
+    if (visor.textContent != "") {
         var raizQ = Number(visor.textContent);
         raizQ = Math.sqrt(raizQ);
 
-        if (preview.innerHTML != '' && operacao_com_parenteses == 0) {
+        if (preview.innerHTML != "" && operacaoComParenteses === 0) {
 
             basic_ops(raizQ);
 
@@ -205,13 +207,13 @@ function raizQuadrada(){
 
         limitaCasasDecimais();
 
-        if (operacao_com_parenteses > 0) {
+        if (operacaoComParenteses > 0) {
             preview.innerHTML = `sqrt(${preview.innerHTML}) `;
         } else {
             preview.innerHTML += `sqrt(${visor.textContent}) `;
         }
 
-        operacao_com_parenteses++;
+        operacaoComParenteses++;
         visor.textContent = resposta;
 
         last_num = visor.textContent;
@@ -221,8 +223,8 @@ function raizQuadrada(){
 //
 
 //
-function virgula(){
-    if (visor.textContent != '') {
+function virgula() {
+    if (visor.textContent != "") {
         visor.textContent += '.';
         contador = 0;
     }
@@ -238,15 +240,13 @@ function operacao(op) {
     //
 
     //
-    if (visor.textContent == undefined || visor.textContent == '' || visor.textContent == null || visor.textContent == 0) {
+    if (visor.textContent == undefined || visor.textContent == "" || visor.textContent == null || visor.textContent == 0) {
         return false;
     } else {
         if (resposta == "CATCHAU") {
             if (op != '=') {
-                //console.log("ERROOOOOU")
                 resposta = Number(visor.textContent);
                 preview.innerHTML += `${visor.textContent} ${op} `;
-                /*visor.textContent = '';*/
                 contador++;
                 last_num = visor.textContent;
                 console.log("Ultimo numero digitado= " + last_num);
@@ -258,7 +258,7 @@ function operacao(op) {
 
     // Para Raiz e 1/X
     if (preview.textContent[preview.textContent.length - 2] == ')' && op != '=') {
-        operacao_com_parenteses = 0;
+        operacaoComParenteses = 0;
         preview.innerHTML += `${op} `;
         return false;
     }
@@ -279,7 +279,7 @@ function operacao(op) {
     //
 
     //
-    if (op == '=' && preview.textContent != '' && visor.textContent != '') {
+    if (op == '=' && preview.textContent != "" && visor.textContent != "") {
 
         last_num = visor.textContent;
         console.log("Ultimo numero digitado= " + last_num);
@@ -310,7 +310,7 @@ function operacao(op) {
     visor.textContent = resposta;
     //
 
-    last_operation = op;
+    lastOperation = op;
 
 }
 // Fim função operação
@@ -322,10 +322,10 @@ function numero(n) {
     visor = window.document.querySelector("p#resposta");
     tamanho_num = visor.textContent.length;
 
-    if (operacao_com_parenteses > 0 && contNegado == 0) {
+    if (operacaoComParenteses > 0 && contNegado == 0) {
         preview.innerHTML = ``;
-        visor.textContent = '';
-        operacao_com_parenteses = 0;
+        visor.textContent = "";
+        operacaoComParenteses = 0;
         contNegado = 0;
     }
 
