@@ -2,7 +2,7 @@
 
 var visor = window.document.querySelector("p#resposta");
 var preview = window.document.querySelector("p#preview");
-var resposta = 'CATCHAU';
+var resposta = "CATCHAU";
 
 //Essa variável serve para saber se a última operação feita foi a de Raiz ou 1/X.
 var operacao_com_parenteses = 0;
@@ -39,12 +39,11 @@ function mudaCor() {
 //OPERAÇÕES DA CALCULADORA
 
 //Essa funçãoclimita número com muitas casas decimais à apenas 5 casas decimais.
-function limita_casas_decimais() {
+function limitaCasasDecimais() {
     var decimal = Number(resposta);
-    var casas_decimais = 0;
+    var casasDecimais = 0;
     var truncado = Math.trunc(resposta);
     console.log("truncado: " + truncado);
-    console.log(resposta);
     console.log("casas decimais: " + decimal);
     if (decimal != truncado) {
         while (decimal != truncado) {
@@ -52,13 +51,13 @@ function limita_casas_decimais() {
             decimal = decimal * 10;
             console.log("truncado: " + truncado);
             console.log("casas decimais: " + decimal);
-            casas_decimais++;
-            if (casas_decimais > 5) {
+            casasDecimais++;
+            if (casasDecimais > 5) {
                 break;
             }
         }
-        console.log("casas decimais - tam: " + casas_decimais);
-        if (casas_decimais > 5) {
+        console.log("casas decimais - tam: " + casasDecimais);
+        if (casasDecimais > 5) {
             resposta = resposta.toFixed(5)
             console.log("res 5 casas: " + resposta)
         }
@@ -118,7 +117,7 @@ function limpar() {
 function limparTudo() {
     preview.innerHTML = ``;
     visor.textContent = '';
-    resposta = 'CATCHAU';
+    resposta = "CATCHAU";
 }
 //
 
@@ -146,7 +145,7 @@ function inverteSinal() {
         contador = 0;
         contNegado = 1;
 
-        limita_casas_decimais();
+        limitaCasasDecimais();
 
         visor.textContent = negar;
 
@@ -173,7 +172,7 @@ function umSobreXis() {
             resposta = um_sobre_x;
         }
 
-        limita_casas_decimais();
+        limitaCasasDecimais();
 
         if (operacao_com_parenteses > 0) {
             preview.innerHTML = `1/(${preview.innerHTML}) `;
@@ -204,7 +203,7 @@ function raizQuadrada(){
             resposta = raizQ;
         }
 
-        limita_casas_decimais();
+        limitaCasasDecimais();
 
         if (operacao_com_parenteses > 0) {
             preview.innerHTML = `sqrt(${preview.innerHTML}) `;
@@ -242,7 +241,7 @@ function operacao(op) {
     if (visor.textContent == undefined || visor.textContent == '' || visor.textContent == null || visor.textContent == 0) {
         return false;
     } else {
-        if (resposta == 'CATCHAU') {
+        if (resposta == "CATCHAU") {
             if (op != '=') {
                 //console.log("ERROOOOOU")
                 resposta = Number(visor.textContent);
@@ -266,7 +265,7 @@ function operacao(op) {
     //
 
     //
-    if (resposta != 'CATCHAU') {
+    if (resposta != "CATCHAU") {
         console.log("OP")
 
         basic_ops(Number(visor.textContent));
@@ -285,7 +284,7 @@ function operacao(op) {
         last_num = visor.textContent;
         console.log("Ultimo numero digitado= " + last_num);
 
-        limita_casas_decimais();
+        limitaCasasDecimais();
 
         //HISTÓRICO
         historico();
@@ -293,7 +292,7 @@ function operacao(op) {
         cont_equal++;
         preview.innerHTML = ``;
         visor.textContent = resposta;
-        resposta = 'CATCHAU';
+        resposta = "CATCHAU";
 
         return false;
     }
@@ -345,26 +344,26 @@ function numero(n) {
 }
 
 function colorirNum(bloco) {
-    bloco.style.background = '#ddddcc';
+    bloco.style.background = "#ddddcc";
 }
 
 
 
 function descolorirNum(bloco) {
-    bloco.style.background = '#ffffff';
+    bloco.style.background = "#ffffff";
 }
 
 
 
 function colorirOp(bloco) {
     bloco.style.background = cor;
-    bloco.style.color = '#ffffff'
+    bloco.style.color = "#ffffff";
 }
 
 
 
 function descolorirOp(bloco) {
-    bloco.style.background = '#ffffff';
+    bloco.style.background = "#ffffff";
     bloco.style.color = cor
 }
 
@@ -384,8 +383,8 @@ function historico() {
 
     var opt;
     var option = window.document.createElement("option")
-    option.setAttribute('value', 'v' + i)
-    option.setAttribute('id', 'v' + i)
+    option.setAttribute("value", 'v' + i)
+    option.setAttribute("id", 'v' + i)
     select.appendChild(option)
     opt = window.document.querySelector("option#v" + i)
     opt.innerHTML = opt_text;
