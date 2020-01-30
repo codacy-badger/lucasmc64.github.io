@@ -66,23 +66,23 @@ function limitaCasasDecimais() {
 //
 
 //Guardará o número digitado quando o igual for apertado.
-var last_num;
+var lastNum;
 //
 
 //
-function basic_ops(num) {
-    last_num = visor.textContent;
-    console.log("Ultimo numero digitado= " + last_num);
+function basicOps(num) {
+    lastNum = visor.textContent;
+    console.log("Ultimo numero digitado= " + lastNum);
 
-    if (preview.textContent[preview.textContent.length - 2] == '*') {
+    if (preview.textContent[preview.textContent.length - 2] == "*") {
         resposta = Number(resposta) * num;
     } else if (preview.textContent[preview.textContent.length - 2] == "/") {
         resposta = Number(resposta) / num;
     } else if (preview.textContent[preview.textContent.length - 2] == "+") {
         resposta = Number(resposta) + num;
-    } else if (preview.textContent[preview.textContent.length - 2] == '-') {
+    } else if (preview.textContent[preview.textContent.length - 2] == "-") {
         resposta = Number(resposta) - num;
-    } else if (preview.textContent[preview.textContent.length - 2] == '^') {
+    } else if (preview.textContent[preview.textContent.length - 2] == "^") {
         resposta = Math.pow(Number(resposta), num);
     }
 }
@@ -151,8 +151,8 @@ function inverteSinal() {
 
         visor.textContent = negar;
 
-        last_num = visor.textContent;
-        console.log("Ultimo numero digitado= " + last_num);
+        lastNum = visor.textContent;
+        console.log("Ultimo numero digitado= " + lastNum);
         return false;
     }
 }
@@ -168,7 +168,7 @@ function umSobreXis() {
         console.log("2 - 1/X -> " + umSobreX);
         if (preview.innerHTML != "" && operacaoComParenteses == 0) {
 
-            basic_ops(umSobreX);
+            basicOps(umSobreX);
 
         } else {
             resposta = umSobreX;
@@ -185,8 +185,8 @@ function umSobreXis() {
         operacaoComParenteses++;
         visor.textContent = resposta;
 
-        last_num = visor.textContent;
-        console.log("Ultimo numero digitado= " + last_num);
+        lastNum = visor.textContent;
+        console.log("Ultimo numero digitado= " + lastNum);
     }
 }
 //
@@ -199,7 +199,7 @@ function raizQuadrada() {
 
         if (preview.innerHTML != "" && operacaoComParenteses === 0) {
 
-            basic_ops(raizQ);
+            basicOps(raizQ);
 
         } else {
             resposta = raizQ;
@@ -216,8 +216,8 @@ function raizQuadrada() {
         operacaoComParenteses++;
         visor.textContent = resposta;
 
-        last_num = visor.textContent;
-        console.log("Ultimo numero digitado= " + last_num);
+        lastNum = visor.textContent;
+        console.log("Ultimo numero digitado= " + lastNum);
     }
 }
 //
@@ -225,7 +225,7 @@ function raizQuadrada() {
 //
 function virgula() {
     if (visor.textContent != "") {
-        visor.textContent += '.';
+        visor.textContent += ".";
         contador = 0;
     }
 }
@@ -234,7 +234,7 @@ function virgula() {
 function operacao(op) {
 
     //Esse contador serve para...
-    if (op != '=') {
+    if (op != "=") {
         contador++;
     }
     //
@@ -244,12 +244,12 @@ function operacao(op) {
         return false;
     } else {
         if (resposta == "CATCHAU") {
-            if (op != '=') {
+            if (op != "=") {
                 resposta = Number(visor.textContent);
                 preview.innerHTML += `${visor.textContent} ${op} `;
                 contador++;
-                last_num = visor.textContent;
-                console.log("Ultimo numero digitado= " + last_num);
+                lastNum = visor.textContent;
+                console.log("Ultimo numero digitado= " + lastNum);
             }
             return false;
         }
@@ -257,7 +257,7 @@ function operacao(op) {
     //
 
     // Para Raiz e 1/X
-    if (preview.textContent[preview.textContent.length - 2] == ')' && op != '=') {
+    if (preview.textContent[preview.textContent.length - 2] == ")" && op != "=") {
         operacaoComParenteses = 0;
         preview.innerHTML += `${op} `;
         return false;
@@ -268,7 +268,7 @@ function operacao(op) {
     if (resposta != "CATCHAU") {
         console.log("OP")
 
-        basic_ops(Number(visor.textContent));
+        basicOps(Number(visor.textContent));
 
     }
     //
@@ -279,10 +279,10 @@ function operacao(op) {
     //
 
     //
-    if (op == '=' && preview.textContent != "" && visor.textContent != "") {
+    if (op == "=" && preview.textContent != "" && visor.textContent != "") {
 
-        last_num = visor.textContent;
-        console.log("Ultimo numero digitado= " + last_num);
+        lastNum = visor.textContent;
+        console.log("Ultimo numero digitado= " + lastNum);
 
         limitaCasasDecimais();
 
@@ -299,7 +299,7 @@ function operacao(op) {
     //
 
     //
-    if (preview.textContent[preview.textContent.length - 2] == ')' && op != '=') {
+    if (preview.textContent[preview.textContent.length - 2] == ")" && op != "=") {
         preview.innerHTML += `${op} `;
     } else {
         preview.innerHTML += `${visor.textContent} ${op} `;
@@ -331,7 +331,7 @@ function numero(n) {
 
     //console.log()
     if (tamanho_num <= 7) {
-        if (visor.textContent == '0' || contador > 0) {
+        if (visor.textContent == "0" || contador > 0) {
             visor.innerHTML = n;
             contador = 0;
         } else {
@@ -383,8 +383,8 @@ function historico() {
 
     var opt;
     var option = window.document.createElement("option")
-    option.setAttribute("value", 'v' + i)
-    option.setAttribute("id", 'v' + i)
+    option.setAttribute("value", "v" + i)
+    option.setAttribute("id", "v" + i)
     select.appendChild(option)
     opt = window.document.querySelector("option#v" + i)
     opt.innerHTML = opt_text;
