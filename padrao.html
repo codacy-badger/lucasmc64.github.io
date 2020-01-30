@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style-padrao.css">
-    <script src="js/script-padrao.js"></script>
     <title>Calculadora</title>
 </head>
 
@@ -33,29 +32,28 @@
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="C" id="apagar-tudo" onclick="limparTudo()"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
-                            <input type="button" value="&#x232b;" id="apagar-ultimo-numero" onclick="operacao('DEL')"
-                                onmouseenter="colorirOp(this)"
-                                onmouseout="descolorirOp(this)">
+                            <input type="button" value="&#x232b;" id="apagar-ultimo-numero" onclick="deletaDigito()"
+                                onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
 
                         <div class="linha">
-                            <input type="button" value="1/X" id="um-sobre-x" onclick="operacao('1/X')"
+                            <input type="button" value="1/X" id="um-sobre-x" onclick="umSobreXis()"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="X&#x00B2" id="potencia" onclick="operacao('^')"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
-                            <input type="button" value="&radic;" id="raiz-quadrada" onclick="operacao('sqrt')"
+                            <input type="button" value="&radic;" id="raiz-quadrada" onclick="raizQuadrada()"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="/" id="dividir" onclick="operacao('/')"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
 
                         <div class="linha">
-                            <input type="button" value="7" id="sete" onclick="numero(7)"
-                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
-                            <input type="button" value="8" id="oito" onclick="numero(8)"
-                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
-                            <input type="button" value="9" id="nove" onclick="numero(9)"
-                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
+                            <input type="button" value="7" id="sete" onclick="numero(7)" onmouseenter="colorirNum(this)"
+                                onmouseout="descolorirNum(this)">
+                            <input type="button" value="8" id="oito" onclick="numero(8)" onmouseenter="colorirNum(this)"
+                                onmouseout="descolorirNum(this)">
+                            <input type="button" value="9" id="nove" onclick="numero(9)" onmouseenter="colorirNum(this)"
+                                onmouseout="descolorirNum(this)">
                             <input type="button" value="X" id="multiplicar" onclick="operacao('*')"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
@@ -65,8 +63,8 @@
                                 onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
                             <input type="button" value="5" id="cinco" onclick="numero(5)"
                                 onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
-                            <input type="button" value="6" id="seis" onclick="numero(6)"
-                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
+                            <input type="button" value="6" id="seis" onclick="numero(6)" onmouseenter="colorirNum(this)"
+                                onmouseout="descolorirNum(this)">
                             <input type="button" value="-" id="subtrair" onclick="operacao('-')"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
@@ -74,20 +72,20 @@
                         <div class="linha">
                             <input type="button" value="1" id="um" onclick="numero(1)" onmouseenter="colorirNum(this)"
                                 onmouseout="descolorirNum(this)">
-                            <input type="button" value="2" id="dois" onclick="numero(2)"
-                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
-                            <input type="button" value="3" id="tres" onclick="numero(3)"
-                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
+                            <input type="button" value="2" id="dois" onclick="numero(2)" onmouseenter="colorirNum(this)"
+                                onmouseout="descolorirNum(this)">
+                            <input type="button" value="3" id="tres" onclick="numero(3)" onmouseenter="colorirNum(this)"
+                                onmouseout="descolorirNum(this)">
                             <input type="button" value="+" id="somar" onclick="operacao('+')"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                         </div>
 
                         <div class="linha">
-                            <input type="button" value="+/-" id="negar" onclick="operacao('+/-')"
+                            <input type="button" value="+/-" id="negar" onclick="inverteSinal()"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
-                            <input type="button" value="0" id="zero" onclick="numero(0)"
-                                onmouseenter="colorirNum(this)" onmouseout="descolorirNum(this)">
-                            <input type="button" value="," id="virgula" onclick="operacao(',')"
+                            <input type="button" value="0" id="zero" onclick="numero(0)" onmouseenter="colorirNum(this)"
+                                onmouseout="descolorirNum(this)">
+                            <input type="button" value="," id="virgula" onclick="virgula()"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
                             <input type="button" value="=" id="igual" onclick="operacao('=')"
                                 onmouseenter="colorirOp(this)" onmouseout="descolorirOp(this)">
@@ -109,6 +107,7 @@
             </div>
         </div>
     </section>
+    <script src="js/script-padrao.js"></script>
 </body>
 
 </html>

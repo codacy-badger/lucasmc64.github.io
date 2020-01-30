@@ -1,7 +1,7 @@
 //Calculadora
 
-var visor;
-var preview;
+var visor = window.document.querySelector("p#resposta");
+var preview = window.document.querySelector("p#preview");
 var resposta = 'CATCHAU';
 
 //Essa variável serve para saber se a última operação feita foi a de Raiz ou 1/X.
@@ -122,30 +122,17 @@ function limparTudo() {
 }
 //
 
-function operacao(op) {
+//Essa operação apaga o conteúdo apenas o último número digitado no "visor principal".
+function deletaDigito() {
+    var delecao = visor.textContent;
+    delecao = delecao.substring(0, (delecao.length - 1));
+    visor.textContent = delecao;
+}
+//
 
-    //Esse contador serve para...
-    if (op != '=') {
-        contador++;
-    }
-    //
-
-    //Esses são os "visores" da calculadora.
-    preview = window.document.querySelector("p#preview");
-    visor = window.document.querySelector("p#resposta");
-    //
-
-    //Essa operação apaga o conteúdo apenas o último número digitado no "visor principal".
-    if (op == 'DEL' && visor.textContent != '0') {
-        var delecao = visor.textContent;
-        delecao = delecao.substring(0, (delecao.length - 1));
-        visor.textContent = delecao;
-        return false;
-    }
-    //
-
-    //Essa operação inverte o número digitado no "visor principal" (multiplica por -1).
-    if (op == '+/-' && visor.textContent != '') {
+//Essa operação inverte o número digitado no "visor principal" (multiplica por -1).
+function inverteSinal() {
+    if (visor.textContent != '') {
         var negar = Number(visor.textContent);
         negar = negar * (-1);
         //operacao_com_parenteses++;
@@ -167,10 +154,12 @@ function operacao(op) {
         console.log("Ultimo numero digitado= " + last_num);
         return false;
     }
-    //
+}
+//
 
-    //
-    if (op == '1/X' && visor.textContent != '') {
+//
+function umSobreXis() {
+    if (visor.textContent != '') {
 
         var um_sobre_x = Number(visor.textContent);
         console.log("1/X -> " + um_sobre_x);
@@ -197,12 +186,13 @@ function operacao(op) {
 
         last_num = visor.textContent;
         console.log("Ultimo numero digitado= " + last_num);
-        return false;
     }
-    //
+}
+//
 
-    //
-    if (op == 'sqrt' && visor.textContent != '') {
+//
+function raizQuadrada(){
+    if (visor.textContent != '') {
         var raizQ = Number(visor.textContent);
         raizQ = Math.sqrt(raizQ);
 
@@ -227,15 +217,24 @@ function operacao(op) {
 
         last_num = visor.textContent;
         console.log("Ultimo numero digitado= " + last_num);
-        return false;
     }
-    //
+}
+//
 
-    //
-    if (op == ',' && visor.textContent != '') {
+//
+function virgula(){
+    if (visor.textContent != '') {
         visor.textContent += '.';
         contador = 0;
-        return false;
+    }
+}
+//
+
+function operacao(op) {
+
+    //Esse contador serve para...
+    if (op != '=') {
+        contador++;
     }
     //
 
@@ -253,7 +252,6 @@ function operacao(op) {
                 last_num = visor.textContent;
                 console.log("Ultimo numero digitado= " + last_num);
             }
-
             return false;
         }
     }
