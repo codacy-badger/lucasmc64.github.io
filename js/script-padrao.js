@@ -58,8 +58,8 @@ function limitaCasasDecimais() {
         }
         console.log("casas decimais - tam: " + casasDecimais);
         if (casasDecimais > 5) {
-            resposta = resposta.toFixed(5)
-            console.log("res 5 casas: " + resposta)
+            resposta = resposta.toFixed(5);
+            console.log("res 5 casas: " + resposta);
         }
     }
 }
@@ -95,11 +95,11 @@ var contNegado = 0;
 //Guardará a operação anterior a solicitada.
 var lastOperation;
 //Guardará quantos cliques foi dado no Igual
-var cont_equal = 0;
+var contEqual = 0;
 
 //
 function porcentagem() {
-    if (preview.innerHTML === ``) {
+    if (preview.innerHTML === "") {
         visor.textContent = 0;
     } else {
         var porcento = Number(visor.textContent);
@@ -160,7 +160,7 @@ function inverteSinal() {
 
 //
 function umSobreXis() {
-    if (visor.textContent != "") {
+    if (visor.textContent !== "") {
 
         var umSobreX = Number(visor.textContent);
         console.log("1/X -> " + umSobreX);
@@ -231,6 +231,32 @@ function virgula() {
 }
 //
 
+
+//HISTÓRICO
+var i = 0;
+function historico() {
+    var select = document.getElementById("memoriacalc");
+    if (contEqual === 0) {
+        select.removeChild(select.childNodes[1]);
+        select.removeChild(select.childNodes[0]);
+    }
+
+    var optText = `${preview.innerHTML}${visor.textContent} = <br/>${resposta}`;
+    console.log("Historico: " + optText);
+
+    var opt;
+    var option = window.document.createElement("option");
+    option.setAttribute("value", "v" + i);
+    option.setAttribute("id", "v" + i);
+    select.appendChild(option);
+    opt = window.document.querySelector("option#v" + i);
+    opt.innerHTML = optText;
+    i++;
+
+}
+//
+
+//Operações extras
 function operacao(op) {
 
     //Esse contador serve para...
@@ -240,7 +266,7 @@ function operacao(op) {
     //
 
     //
-    if (visor.textContent === undefined || visor.textContent === "" || visor.textContent === null || visor.textContent === 0) {
+    if (visor.textContent == undefined || visor.textContent === "" || visor.textContent === null || visor.textContent === 0) {
         return false;
     } else {
         if (resposta === "CATCHAU") {
@@ -266,7 +292,7 @@ function operacao(op) {
 
     //
     if (resposta !== "CATCHAU") {
-        console.log("OP")
+        console.log("OP");
 
         basicOps(Number(visor.textContent));
 
@@ -274,8 +300,8 @@ function operacao(op) {
     //
 
     //
-    console.log(preview.textContent[preview.textContent.length - 2])
-    console.log(resposta)
+    console.log(preview.textContent[preview.textContent.length - 2]);
+    console.log(resposta);
     //
 
     //
@@ -289,7 +315,7 @@ function operacao(op) {
         //HISTÓRICO
         historico();
         //
-        cont_equal++;
+        contEqual++;
         preview.innerHTML = ``;
         visor.textContent = resposta;
         resposta = "CATCHAU";
@@ -316,21 +342,21 @@ function operacao(op) {
 // Fim função operação
 
 //
-var tamanho_num;
+var tamanhoNum;
 
 function numero(n) {
     visor = window.document.querySelector("p#resposta");
-    tamanho_num = visor.textContent.length;
+    tamanhoNum = visor.textContent.length;
 
     if (operacaoComParenteses > 0 && contNegado === 0) {
-        preview.innerHTML = ``;
+        preview.innerHTML = "";
         visor.textContent = "";
         operacaoComParenteses = 0;
         contNegado = 0;
     }
 
     //console.log()
-    if (tamanho_num <= 7) {
+    if (tamanhoNum <= 7) {
         if (visor.textContent === "0" || contador > 0) {
             visor.innerHTML = n;
             contador = 0;
@@ -364,30 +390,5 @@ function colorirOp(bloco) {
 
 function descolorirOp(bloco) {
     bloco.style.background = "#ffffff";
-    bloco.style.color = cor
-}
-
-
-
-//HISTÓRICO
-var i = 0;
-function historico() {
-    var select = document.getElementById("memoriacalc");
-    if (cont_equal === 0) {
-        select.removeChild(select.childNodes[1]);
-        select.removeChild(select.childNodes[0]);
-    }
-
-    var opt_text = `${preview.innerHTML}${visor.textContent} = <br/>${resposta}`;
-    console.log("Historico: " + opt_text);
-
-    var opt;
-    var option = window.document.createElement("option")
-    option.setAttribute("value", "v" + i)
-    option.setAttribute("id", "v" + i)
-    select.appendChild(option)
-    opt = window.document.querySelector("option#v" + i)
-    opt.innerHTML = opt_text;
-    i++;
-
+    bloco.style.color = cor;
 }
