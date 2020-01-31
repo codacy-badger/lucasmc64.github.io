@@ -26,8 +26,13 @@ function mudaCor() {
     fundo.style.backgroundColor = cor;
     var botoes = window.document.querySelectorAll("input");
     var i;
+    /*
     for (i = 0; i < botoes.length; i++) {
         botoes[i].style.color = cor;
+    }
+    */
+    for (button in botoes) {
+        button.style.color = cor;
     }
     var home = window.document.querySelector("#home");
     home.style.color = cor;
@@ -134,7 +139,7 @@ function deletaDigito() {
 
 //Essa operação inverte o número digitado no "visor principal" (multiplica por -1).
 function inverteSinal() {
-    if (visor.textContent != "") {
+    if (visor.textContent !== "") {
         var negar = Number(visor.textContent);
         negar = negar * (-1);
         if (preview.innerHTML !== "") {
@@ -266,7 +271,7 @@ function operacao(op) {
     //
 
     //
-    if (visor.textContent == undefined || visor.textContent === "" || visor.textContent === null || visor.textContent === 0) {
+    if (visor.textContent === undefined || visor.textContent === "" || visor.textContent === null || visor.textContent === 0) {
         return false;
     } else {
         if (resposta === "CATCHAU") {
@@ -316,7 +321,7 @@ function operacao(op) {
         historico();
         //
         contEqual++;
-        preview.innerHTML = ``;
+        preview.innerHTML = "";
         visor.textContent = resposta;
         resposta = "CATCHAU";
 
