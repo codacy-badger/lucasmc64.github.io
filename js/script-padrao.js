@@ -25,8 +25,11 @@ function mudaCor() {
     var fundo = window.document.querySelector("body");
     fundo.style.backgroundColor = cor;
     var botoes = window.document.querySelectorAll("input");
-    for (let i in botoes) {
-        botoes[i].style.color = cor;
+    var i;
+    var bbutton;
+    for (i = 0; i < botoes.length; i++) {
+        bbuton = botoes[i];
+        bbutton.style.color = cor;
     }
     
     var home = window.document.querySelector("#home");
