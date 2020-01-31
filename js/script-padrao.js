@@ -193,7 +193,7 @@ function umSobreXis() {
 
 //
 function raizQuadrada() {
-    if (visor.textContent != "") {
+    if (visor.textContent !== "") {
         var raizQ = Number(visor.textContent);
         raizQ = Math.sqrt(raizQ);
 
@@ -234,7 +234,7 @@ function virgula() {
 function operacao(op) {
 
     //Esse contador serve para...
-    if (op != "=") {
+    if (op !== "=") {
         contador++;
     }
     //
@@ -257,7 +257,7 @@ function operacao(op) {
     //
 
     // Para Raiz e 1/X
-    if (preview.textContent[preview.textContent.length - 2] == ")" && op != "=") {
+    if (preview.textContent[preview.textContent.length - 2] === ")" && op !== "=") {
         operacaoComParenteses = 0;
         preview.innerHTML += `${op} `;
         return false;
@@ -373,7 +373,7 @@ function descolorirOp(bloco) {
 var i = 0;
 function historico() {
     var select = document.getElementById("memoriacalc");
-    if (cont_equal == 0) {
+    if (cont_equal === 0) {
         select.removeChild(select.childNodes[1]);
         select.removeChild(select.childNodes[0]);
     }
