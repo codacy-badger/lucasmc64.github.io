@@ -28,7 +28,7 @@ function mudaCor() {
     var i;
     var bbutton;
     for (i = 0; i < botoes.length; i++) {
-        bbuton = botoes[i];
+        bbutton = botoes[i];
         bbutton.style.color = cor;
     }
     
