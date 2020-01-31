@@ -25,15 +25,10 @@ function mudaCor() {
     var fundo = window.document.querySelector("body");
     fundo.style.backgroundColor = cor;
     var botoes = window.document.querySelectorAll("input");
-    var i;
-    /*
-    for (i = 0; i < botoes.length; i++) {
+    for (let i in botoes) {
         botoes[i].style.color = cor;
     }
-    */
-    for (button in botoes) {
-        button.style.color = cor;
-    }
+    
     var home = window.document.querySelector("#home");
     home.style.color = cor;
     var historico = window.document.querySelector("#default");
@@ -123,7 +118,7 @@ function limpar() {
 
 //Esta operação apaga o conteúdo de todos os "visores" e as operações armazenadas.
 function limparTudo() {
-    preview.innerHTML = ``;
+    preview.innerHTML = "";
     visor.textContent = "";
     resposta = "CATCHAU";
 }
