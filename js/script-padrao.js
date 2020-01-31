@@ -25,16 +25,9 @@ function mudaCor() {
     var fundo = window.document.querySelector("body");
     fundo.style.backgroundColor = cor;
     var botoes = window.document.querySelectorAll("input");
-    /*
-    for (i = 0; i < botoes.length; i++) {
-        bbutton = botoes[i];
-        bbutton.style.color = cor;
-    }
-    */
+
     for (let bbutton of botoes) {
-        if (true) {
-            bbutton.style.color = cor;
-        }
+        bbutton.style.color = cor;
     }
 
     var home = window.document.querySelector("#home");
@@ -46,7 +39,7 @@ function mudaCor() {
 
 //OPERAÇÕES DA CALCULADORA
 
-//Essa funçãoclimita número com muitas casas decimais à apenas 5 casas decimais.
+//Essa função limita número com muitas casas decimais à apenas 5 casas decimais.
 function limitaCasasDecimais() {
     var decimal = Number(resposta);
     var casasDecimais = 0;
@@ -345,7 +338,6 @@ function operacao(op) {
     //
 
     lastOperation = op;
-
 }
 // Fim função operação
 
@@ -355,15 +347,12 @@ var tamanhoNum;
 function numero(n) {
     visor = window.document.querySelector("p#resposta");
     tamanhoNum = visor.textContent.length;
-
     if (operacaoComParenteses > 0 && contNegado === 0) {
         preview.innerHTML = "";
         visor.textContent = "";
         operacaoComParenteses = 0;
         contNegado = 0;
     }
-
-    //console.log()
     if (tamanhoNum <= 7) {
         if (visor.textContent === "0" || contador > 0) {
             visor.innerHTML = n;
@@ -374,29 +363,23 @@ function numero(n) {
     } else {
         alert("Número grande demais!");
     }
-
 }
 
 function colorirNum(bloco) {
     bloco.style.background = "#ddddcc";
 }
 
-
-
 function descolorirNum(bloco) {
     bloco.style.background = "#ffffff";
 }
-
-
 
 function colorirOp(bloco) {
     bloco.style.background = cor;
     bloco.style.color = "#ffffff";
 }
 
-
-
 function descolorirOp(bloco) {
     bloco.style.background = "#ffffff";
     bloco.style.color = cor;
 }
+//
