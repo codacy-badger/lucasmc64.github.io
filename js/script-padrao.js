@@ -25,13 +25,18 @@ function mudaCor() {
     var fundo = window.document.querySelector("body");
     fundo.style.backgroundColor = cor;
     var botoes = window.document.querySelectorAll("input");
-    var i;
-    var bbutton;
+    /*
     for (i = 0; i < botoes.length; i++) {
         bbutton = botoes[i];
         bbutton.style.color = cor;
     }
-    
+    */
+    for (let bbutton of botoes) {
+        if (true) {
+            bbutton.style.color = cor;
+        }
+    }
+
     var home = window.document.querySelector("#home");
     home.style.color = cor;
     var historico = window.document.querySelector("#default");
